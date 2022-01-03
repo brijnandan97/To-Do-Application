@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List</title>
+  <style>
+.completed{text-decoration: line-through;}
+
+table, th, td {
+  border: 1px solid black;
+}
+  </style>
+</head>
+
+<body>
+  <h1>Welcome to Todo List Application</h1>
+  <form >
+    <input type="search" placeholder="Search" 
+        id="searchtextbox" />
+  </form>
+  <br>
+  <input type="button" id="logout" value="Logout" onclick="logout()"></input> 
+  <br>
+  <br>
+  <input type="button" id="EditProfile" value="Profile" onclick="EditButton()" ></input> 
+  <br>
+  <br>
+  <input type="text"  placeholder="Enter your task" id="addtaskinput" />
+  <input type="text"  placeholder="Due Date" id="datetaskinput" onfocus="(this.type='date')" onblur="(this.type='text')"/>
+  <input type="text"  placeholder="Reminder Date" id="remindertaskinput" onfocus="(this.type='date')" onblur="(this.type='text')"/>
+  <input type="hidden" id="saveindex">
+  <button type="button" id="addtaskbtn">
+      Add Task
+  </button>
+  <button type="button"  id="savetaskbtn" style="display: none;">
+    Save Task
+  </button>
+  <button type="button"  id="sorttaskbtn" >
+    Sort
+  </button>
+  <button type="button" id="deleteallbtn" >
+    Delete All
+  </button>
+  
+  <h3> Select Category:</h3>
+  <input type="checkbox" id="Office"  name="category" value="Office" >Office<br>      
+  <input type="checkbox" id="Assignment" name="category" value="Assignment" >Assignment<br>      
+  <input type="checkbox" id="Household" name="category" value="Household">Household<br>
+  <input type="checkbox" id="etcetra" name="category" value="Etcetra">Etcetra<br>
+
+  <br><br>
+  
+  <table  id="addedtasklist" >
+    
+  </table>
+         
+  <script src="To-DoJS.js"></script>
+  <script type="text/javascript">
+    window.history.forward();
+    function noBack() {
+        window.history.forward();
+    }
+</script>  
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Learning JavaScript</title>
+        <style>
+            .container{
+            width: 400px;
+            height: 225px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            border: 1px solid black;
+            }
+            #display_image{
+            width: 300px;
+            height: 169px;
+            border: 1px solid black;
+            background-position: center;
+            background-size: cover;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <form id="edit-form">
+            <center>  <h1> Edit Details</h1> </center>
+            <hr>
+            
+            <table>
+                <tr>
+                  <td align="left">First Name:</td>
+                  <td align="left"><input type="text" id="firstname" name="ftname"  size="15" placeholder="FirstName" /> </td>
+                  <div class="error"></div>
+                </tr>
+                <tr>
+                <td align="left">Last Name:</td>
+                <td align="left"><input type="text" id="lastname" name="ltname" placeholder= "LastName" size="15" /> </td>
+                </tr>
+                <tr>
+                    <td align="left">Gender:</td>
+                    <td align="left"><input type="radio" id="gender" value="Male" name="gender" checked > Male   
+                        <input type="radio" id="gender" value="Female" name="gender"> Female   
+                        <input type="radio" id="gender" value="Other" name="gender"> Other 
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="left">Phone:</td>
+                    <td align="left"><input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>
+                        <input type="text" id="Phone" name="phone" placeholder="phone no." size="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">Address:</td>
+                    <td align="left"><input type="text" id="address" name="addr" placeholder= "Full Address"  required /> </td>
+                </tr>
+                <tr>
+                    <td align="left">Email:</td>
+                    <td align="left"><input type="text" id="email" placeholder="Enter Email" name="email"> </td>
+                </tr>
+                
+                
+                <tr>
+                    <td align="left">Upload Image:</td>
+                    <td><div class="container">
+                        <input type="file" id="image_input" accept="image/png, image/jpg">
+                        <div id="display_image"></div>
+                     </div>
+                    </td>
+                </tr>
+                
+                <tr><td align="right"><input id="edit_btn" type="submit" value="Save" />
+                    <td align="center"><button type="reset" value="submit">Reset</button></td>
+                    <td align="left"><button id="bck-btn" value="Back" onclick="back()">Back</td>
+                </tr>
+            
+            </table>
+            
+        </form> 
+
+
+    <script type="text/javascript" language="javascript" src="EditJS.js"></script>
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+    </body>
+</html>
