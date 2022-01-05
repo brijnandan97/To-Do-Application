@@ -1,29 +1,15 @@
-//Image Upload
-// const image_input = document.querySelector("#image_input");
-// image_input.addEventListener("change", ()=> {
-//    const reader = new FileReader();
-//    reader.addEventListener("load", () => {
-//    const uploaded_image = reader.result;
-//    document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`;
-// });
-//    reader.readAsDataURL(this.files[0]);
-// });
+// Image Upload
+const image_input = document.querySelector("#image_input");
+let reader="";
+image_input.addEventListener("change", function() {
+    reader = new FileReader();
+   reader.addEventListener("load", () => {
+   const uploaded_image = reader.result;
+   document.querySelector("#display_image").setAttribute ("src",uploaded_image);
+});
+   reader.readAsDataURL(this.files[0]);
+});
 
-// function getBase64Image(img) {
-//     var canvas = document.createElement("canvas");
-//     canvas.width = img.width;
-//     canvas.height = img.height;
-
-//     var ctx = canvas.getContext("2d");
-//     ctx.drawImage(img, 0, 0);
-
-//     var dataURL = canvas.toDataURL("image/png");
-
-//     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-// }
-
-// getImage_Input = getBase64Image(bannerImage);
-// localStorage.setItem("getImage_Input", getImage_Input);
 
 
 function back(){
@@ -53,6 +39,15 @@ for(let i=0;i<arrayOfKeys.length;i++){
     }
 }
 
+document.addEventListener('DOMContentLoaded',()=>{
+    const recentImagedataURl=getUserVal.img;
+    if(recentImagedataURl){
+        document.querySelector("#display_image").setAttribute("src",recentImagedataURl);
+    }
+});
+
+
+
 function Edit(){
     getUserVal.firstname=getFirstName.value;
     getUserVal.lastname= getLastName.value;
@@ -60,6 +55,7 @@ function Edit(){
     getUserVal.Phone=getPhone.value;
     getUserVal.address=getAddress.value;
     getUserVal.email=getEmail.value;
+    getUserVal.img=reader.result;
     localStorage.setItem(getUserName,JSON.stringify(getUserVal));
 }
 

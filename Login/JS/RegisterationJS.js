@@ -7,39 +7,8 @@ image_input.addEventListener("change", function() {
    const uploaded_image = reader.result;
    document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`;
 });
-   console.log(reader.readAsDataURL(this.files[0]));
+   reader.readAsDataURL(this.files[0]);
 });
-
-//debug start
-
-// Get a reference to the image element
-// var elephant = document.getElementById("image_input");
-// var imgAsDataURL="";
-// // Take action when the image has loaded
-// elephant.addEventListener("load", function () {
-//     var imgCanvas = document.createElement("canvas"),
-//         imgContext = imgCanvas.getContext("2d");
-
-//     // Make sure canvas is as big as the picture
-//     imgCanvas.width = elephant.width;
-//     imgCanvas.height = elephant.height;
-
-//     // Draw image into canvas element
-//     imgContext.drawImage(elephant, 0, 0, elephant.width, elephant.height);
-
-//     // Get canvas contents as a data URL
-//     imgAsDataURL = imgCanvas.toDataURL("image/png");
-
-//     // Save image into localStorage
-
-        
-    
-// }); 
-
-
-//debug end
-
-
 
 
 
@@ -51,7 +20,7 @@ let getAddress = document.getElementById('address');
 let getGender = document.getElementById('gender');
 let getPhone = document.getElementById('Phone');
 let getEmail = document.getElementById('email');
-//var getImage_Input = document.getElementById('image_input');
+
 
 
 function store() {
@@ -66,6 +35,7 @@ function store() {
         'email': getEmail.value,
         'isLogged':"false",
         'localtask':[],
+        'img':reader.result,
     };
     if(localStorage.getItem(getUserName.value)!=null){
         alert("Username already exists. Please try with a different Username!");
@@ -88,7 +58,7 @@ const username=document.getElementById("username");
 const email=document.getElementById("email");
 const pwd=document.getElementById("pw");
 const cnfpwd=document.getElementById("cnfpw");
-
+const imgval=reader.result;
 
 form.addEventListener('submit',()=>{
     event.preventDefault();
@@ -96,7 +66,9 @@ form.addEventListener('submit',()=>{
         if(store()){
             event.returnValue = true;
             alert("Registration Successful");
-            document.register-form.reset();
+            document.getElementById('register-form').reset();
+            document.querySelector("#display_image").style.backgroundImage ='none';
+            reader.result="";
         }
         else{
             event.returnValue = false;
@@ -109,7 +81,6 @@ form.addEventListener('submit',()=>{
 
 
 const validate=()=>{
-    
     const firstnameval=firstname.value.trim();
     const lastnameval=lastname.value.trim();
     const genderval=gender.value.trim();
@@ -118,7 +89,7 @@ const validate=()=>{
     const emailval=email.value.trim();
     const pwdval=pwd.value.trim();
     const cnfpwdval=cnfpwd.value.trim();
-
+    const img=imgval;
 
     //Validating Username
     if(usernameval===""){
@@ -166,6 +137,12 @@ const validate=()=>{
         alert("Password doesn't Match! Check Again");
         return false;
     }
+
+    if(reader.result===undefined){
+        alert("Please upload image!");
+        return false;
+    }
+
     return true;
 }
 
