@@ -3,6 +3,7 @@
     <head>
         <title>Learning JavaScript</title>
         <style>
+            
             .container{
             width: 400px;
             height: 225px;
@@ -20,23 +21,29 @@
             background-position: center;
             background-size: cover;
             }
+
+            
             
         </style>
     </head>
     <body>
+        <center>  <h1> Edit Details</h1> </center>
+        <hr>
+        
+        
         <form id="edit-form">
-            <center>  <h1> Edit Details</h1> </center>
-            <hr>
             
             <table>
                 <tr>
                   <td align="left">First Name:</td>
-                  <td align="left"><input type="text" id="firstname" name="ftname"  size="15" placeholder="FirstName" /> </td>
-                  <div class="error"></div>
+                  <td align="left"><input type="text" id="firstname" name="ftname"  size="15" placeholder="FirstName" />
+                    <span id="error1"></span> </td>
                 </tr>
+                
                 <tr>
                 <td align="left">Last Name:</td>
-                <td align="left"><input type="text" id="lastname" name="ltname" placeholder= "LastName" size="15" /> </td>
+                <td align="left"><input type="text" id="lastname" name="ltname" placeholder= "LastName" size="15" />
+                <span id="error2"></span> </td>
                 </tr>
                 <tr>
                     <td align="left">Gender:</td>
@@ -48,16 +55,16 @@
                  <tr>
                     <td align="left">Phone:</td>
                     <td align="left"><input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>
-                        <input type="text" id="Phone" name="phone" placeholder="phone no." size="10">
+                        <input type="text" id="Phone" name="phone" placeholder="phone no." size="10"> <span id="error3"></span>
                     </td>
                 </tr>
                 <tr>
                     <td align="left">Address:</td>
-                    <td align="left"><input type="text" id="address" name="addr" placeholder= "Full Address"  required /> </td>
+                    <td align="left"><input type="text" id="address" name="addr" placeholder= "Full Address"   /><span id="error4"></span> </td>
                 </tr>
                 <tr>
                     <td align="left">Email:</td>
-                    <td align="left"><input type="text" id="email" placeholder="Enter Email" name="email"> </td>
+                    <td align="left"><input type="text" id="email" placeholder="Enter Email" name="email"> <span id="error5"></span></td>
                 </tr>
                 
                 
@@ -70,17 +77,18 @@
                     </td>
                 </tr>
                 
-                <tr><td align="right"><input id="edit_btn" type="submit" value="Save" />
+                 <tr><td align="right"><input id="edit_btn" type="submit" value="Save" />
                     <td align="center"><button type="reset" value="submit">Reset</button></td>
-                    <td align="left"><button id="bck-btn" value="Back" onclick="back()">Back</td>
+                    <td align="left"><button id="bck-btn" type="button" onclick="back()">Back</button></td>
                 </tr>
             
             </table>
             
         </form> 
+       
 
 
-    <script type="text/javascript" language="javascript" src="EditJS.js"></script>
+    <script type="text/javascript" language="javascript" src="../JS/EditJS.js"></script>
     <script type="text/javascript">
         window.history.forward();
         function noBack() {

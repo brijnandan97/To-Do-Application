@@ -21,7 +21,7 @@ function logout(){
     getUserVal.isLogged="false";
     localStorage.setItem(getUserName,JSON.stringify(getUserVal));
     alert("You have successfully Logged out");
-    window.location.href='Login.html';
+    window.location.href='Index.html';
     
 }
 
@@ -109,19 +109,25 @@ function showtask(){
                                  <td>${item.due_date}</td>
                                  <td>${item.reminder_date}</td>
                                  <td>${item.categories}</td>`;
+            html += `<tr>
+                    <th>${index+1}</th>
+                    ${taskCompleteValue}
+                    <td align="right"><button type="button" onclick="deleteitem(${index})">Delete</button></td>
+                </tr>`;
         }else{
             taskCompleteValue = `<td>${item.task_name}</td>
                                  <td>${item.due_date}</td>
                                  <td>${item.reminder_date}</td>
                                  <td>${item.categories}</td>`;
-        }
-        html += `<tr>
-                    <th >${index+1}</th>
-                    ${taskCompleteValue}
-                    <td align="right"><button type="button" onclick="edittask(${index})" >Edit</button></td>
-                    <td align="right"><button type="button" class="text-success" id=${index}>Complete</button></td>
-                    <td align="right"><button type="button" onclick="deleteitem(${index})" >Delete</button></td>
+            html += `<tr>
+                     <th >${index+1}</th>
+                     ${taskCompleteValue}
+                     <td align="right"><button type="button" onclick="edittask(${index})">Edit</button></td>
+                     <td align="right"><button type="button" class="text-success" id=${index}>Complete</button></td>
+                     <td align="right"><button type="button" onclick="deleteitem(${index})" >Delete</button></td>
                 </tr>`;
+        }
+        
     });
     addedtasklist.innerHTML = html;
 }
@@ -217,20 +223,18 @@ function deleteitem(index){
 
 //completetask
 let addedtasklist = document.getElementById("addedtasklist");
+
     addedtasklist.addEventListener("click", function(e){
         let taskObj = getUserVal.localtask;
         
         let mytarget = e.target;
         let mytargetid = mytarget.getAttribute("id");
             for (keys in taskObj[mytargetid]) {
-                if(keys == 'completeStatus' && taskObj[mytargetid][keys]==true){
-                    taskObj[mytargetid].completeStatus = false;
-                  
-                }else if(keys == 'completeStatus' && taskObj[mytargetid][keys]==false){
+                if(keys == 'completeStatus' && taskObj[mytargetid][keys]==false){
                     taskObj[mytargetid].completeStatus = true;
                     
                 }
-              }
+            }
         getUserVal.localtask= taskObj; 
         localStorage.setItem(getUserName,JSON.stringify(getUserVal));
         showtask();

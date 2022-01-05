@@ -70,7 +70,7 @@ const lastname=document.getElementById("lastname");
 const gender=document.getElementById("gender");
 const Phone=document.getElementById("Phone");
 const email=document.getElementById("email");
-
+const addr=document.getElementById("address");
 
 const editform=document.getElementById("edit-form");
 
@@ -79,6 +79,7 @@ editform.addEventListener('submit',()=>{
     if(validate()){
         Edit();
         event.returnValue = true;
+        alert("Profile Updated");
     }
     else{
         event.returnValue = false;
@@ -93,35 +94,63 @@ const validate=()=>{
     const genderval=gender.value.trim();
     const Phoneval=Phone.value.trim();
     const emailval=email.value.trim();
-    
+    const addrval=addr.value.trim();
 
-
+    let result=true;
     
     //Validating Email
+    var error5 = document.getElementById("error5")
     let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;    
     if(emailval.match(validRegex)==null){
-        alert("Invalid Email address");
-        return false;
+        error5.innerHTML = "<span style='color: red;'>"+
+                        "Please enter the correct E-mail</span>"
+        
+        result=false;
+    }else {
+        error5.innerHTML = ""
     }
 
     //Validating Firstname
+    var error1 = document.getElementById("error1")
     if(firstnameval==null || firstnameval===""){
-        alert("FirstName should not be null");
-        return false;
+        error1.innerHTML = "<span style='color: red;'>"+
+                        "Please enter the First Name</span>"
+        result=false;
+    }else {
+        error1.innerHTML = ""
     }
     //Validating LastName
+    var error2 = document.getElementById("error2")
     if(lastnameval==null || lastnameval===""){
-        alert("LastName should not be null");
-        return false;
+        error2.innerHTML = "<span style='color: red;'>"+
+                        "Please enter the Last Name</span>"
+        result=false;
+    }else {
+        error2.innerHTML = ""
     }
     //Validating Phone no.
+    var error3 = document.getElementById("error3")
     let Phonereg=/^\d{10}$/;
     if(Phoneval.match(Phonereg)==null || Phoneval.length!=10){
-        alert("Phone Number is not Correct");
-        return false;
+        error3.innerHTML = "<span style='color: red;'>"+
+                        "Please enter the correct Number</span>"
+        
+        result=false;
+    }else {
+        error3.innerHTML = ""
     }
 
-    return true;
+    //validating address
+    var error4 = document.getElementById("error4")
+    if(addrval==null || addrval===""){
+        error4.innerHTML = "<span style='color: red;'>"+
+                        "Please enter the correct Address</span>"
+        result=false;
+    }else {
+        error4.innerHTML = ""
+    }
+
+    return result;
 }
 
 
@@ -132,3 +161,4 @@ document.getElementById("gender").value=getUserVal.gender;
 document.getElementById("Phone").value=getUserVal.Phone;
 document.getElementById('address').value=getUserVal.address;
 document.getElementById("email").value=getUserVal.email;
+
