@@ -4,27 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
+    <header class="bg-dark mb-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <nav class="navbar justify-content-center">
+                <a class="navbar-brand">Login</a>
+               </nav>
+              </div>
+            </div>
+        </div>
+    </header>
     <form id="login-form"> 
-        <center>  <h1> Login Form</h1> </center>
-        <hr>
-        <table>
-            <tr>
-                <td align="left">User Name:</td>
-                <td align="left"><input id="userName" type="text" placeholder="Enter Username" value="" required/></td>
-            </tr>
-            <tr>
-                <td align="left">Password :</td>
-                <td align="left"><input id="userPw" type="password" placeholder="Enter Password" value="" required/></td>
-            </tr>
-            <tr>
-                <td align="right"><input id="login_btn" type="submit" value="Login" /></td>
-            </tr>
-            <tr>
-                <td align="right"> New User? <a href="Registration.html">Sign up</td>
-            </tr>
-        </table>
+        <section class="todo-outer">
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col-lg-6 col-md-8">
+                  <div class="todo-inner">
+                    <div class="form-row">
+                      <div class="col-12 mr-10 my-6">
+                            <table>
+                                <tr>
+                                    <td align="left">User Name:</td>
+                                    <td align="left"><input id="userName" type="text" placeholder="Enter Username" value="" required/></td>
+                                </tr>
+                                <tr>
+                                    <td align="left">Password :</td>
+                                    <td align="left"><input id="userPw" type="password" placeholder="Enter Password" value="" required/></td>
+                                </tr>
+                                <tr>
+                                    <td align="right"><input id="login_btn" type="submit" value="Login" class="btn btn-primary mr-2"/></td>
+                                </tr>
+                                <tr>
+                                    <td align="right">New User? <a href="Registration.html">Sign up</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </form>
     <script type="text/javascript" language="javascript" src="../JS/LoginJs.js"></script>
     <script type="text/javascript">

@@ -146,6 +146,15 @@ const validate=()=>{
         error4.innerHTML = ""
     }
 
+    var error6=document.getElementById("error6");
+    if(reader.result===undefined){
+        error6.innerHTML = "<span style='color: red;'>"+
+                        "Please upload the picture</span>"
+        result=false;
+    }else {
+        error6.innerHTML = ""
+    }
+
     return result;
 }
 

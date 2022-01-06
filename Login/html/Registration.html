@@ -2,8 +2,11 @@
 <html>
     <head>
         <title>Learning JavaScript</title>
+        <link rel="stylesheet" href="../css/font-awesome.min.css" />
+        <link rel="stylesheet" href="../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../css/style.css" />
         <style>
-            .container{
+            .container1{
             width: 400px;
             height: 225px;
             display: flex;
@@ -23,78 +26,106 @@
         </style>
     </head>
     <body>
+        <header class="bg-dark mb-3">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <nav class="navbar justify-content-md-center">
+                    <a class="navbar-brand">Registration</a>
+                </nav>
+            </div>
+            
+          </div>
+        </div>
+        </header> 
+
         <form id="register-form">
-            <center>  <h1> Registration Form</h1> </center>
-            <hr>
-            
-            <table>
-                <tr>
-                  <td align="left">First Name:</td>
-                  <td align="left"><input type="text" id="firstname" name="ftname" placeholder= "Firstname" size="15" required /> </td>
-                  <div class="error"></div>
-                </tr>
-                <tr>
-                <td align="left">Last Name:</td>
-                <td align="left"><input type="text" id="lastname" name="ltname" placeholder= "Lastname" size="15" required /> </td>
-                </tr>
-                <tr>
-                    <td align="left">Gender:</td>
-                    <td align="left"><input type="radio" id="gender" value="Male" name="gender" checked > Male   
-                        <input type="radio" id="gender" value="Female" name="gender"> Female   
-                        <input type="radio" id="gender" value="Other" name="gender"> Other 
-                    </td>
-                </tr>
-                 <tr>
-                    <td align="left">Phone:</td>
-                    <td align="left"><input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>
-                        <input type="text" id="Phone" name="phone" placeholder="phone no." size="10" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left">Address:</td>
-                    <td align="left"><input type="text" id="address" name="addr" placeholder= "Full Address"  required /> </td>
-                </tr>
-                <tr>
-                    <td align="left">User Name:</td>
-                    <td align="left"><input type="text" id="username" name="uname" placeholder= "Username" size="15" required /> </td>
-                    </tr>
-                <tr>
-                    <td align="left">Email:</td>
-                    <td align="left"><input type="text" id="email" placeholder="Enter Email" name="email" required> </td>
-                </tr>
-                <tr>
-                    <td align="left">Password:</td>
-                    <td align="left"><input type="password" id="pw" placeholder="Enter Password" name="password" required> </td>
-                </tr>
+            <section class="todo-outer">
+                <div class="container">
+                  <div class="row justify-content-md-center">
+                    <div class="col-lg-8 col-md-8">
+                      <div class="todo-inner">
+                        <div class="form-row">
+                          <div class="col-12 mr-sm-1 my-lg-2">  
+                        <table>
+                            <tr>
+                            <td align="left">First Name:</td>
+                            <td align="left"><input type="text" id="firstname" name="ftname" placeholder= "Firstname" size="15" required /> </td>
+                            <div class="error"></div>
+                            </tr>
+                            <tr>
+                            <td align="left">Last Name:</td>
+                            <td align="left"><input type="text" id="lastname" name="ltname" placeholder= "Lastname" size="15" required /> </td>
+                            </tr>
+                            <tr>
+                                <td align="left">Gender:</td>
+                                <td align="left"><input type="radio" id="gender" value="Male" name="gender" checked > Male   
+                                    <input type="radio" id="gender" value="Female" name="gender"> Female   
+                                    <input type="radio" id="gender" value="Other" name="gender"> Other 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">Phone:</td>
+                                <td align="left"><input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>
+                                    <input type="text" id="Phone" name="phone" placeholder="phone no." size="10" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">Address:</td>
+                                <td align="left"><input type="text" id="address" name="addr" placeholder= "Full Address"  required /> </td>
+                            </tr>
+                            <tr>
+                                <td align="left">User Name:</td>
+                                <td align="left"><input type="text" id="username" name="uname" placeholder= "Username" size="15" required /> </td>
+                                </tr>
+                            <tr>
+                                <td align="left">Email:</td>
+                                <td align="left"><input type="text" id="email" placeholder="Enter Email" name="email" required> </td>
+                            </tr>
+                            <tr>
+                                <td align="left">Password:</td>
+                                <td align="left"><input type="password" id="pw" placeholder="Enter Password" name="password" required> </td>
+                            </tr>
 
-                <tr>
-                    <td align="left">Confirm Password:</td>
-                    <td align="left"><input type="password" id="cnfpw" placeholder="Confirm Password" name="password" required> </td>
-                </tr>
-                
-                
-                <tr>
-                    <td align="left">Upload Image:</td>
-                    <td><div class="container">
-                            <input type='file' id="image_input"  />
-                            <img id="display_image">
+                            <tr>
+                                <td align="left">Confirm Password:</td>
+                                <td align="left"><input type="password" id="cnfpw" placeholder="Confirm Password" name="password" required> </td>
+                            </tr>
+                            
+                            
+                            <tr>
+                                <td align="left">Upload Image:</td>
+                                <td><div class="container1">
+                                        <input type='file' id="image_input"  />
+                                        <img id="display_image">
+                                    </div>
+                                </td>
+                            </tr>
+                            
+
+                            <tr><td align="right"><input id="rgstr_btn" type="submit" value="Register" class="btn btn-primary mr-2"/>
+                                <td align="left"><button type="reset" value="submit" class="btn btn-primary mr-2" onClick="ResetForm()">Reset</button></td>
+                            </tr>
+                            <tr>
+                                <td align="right"> Already a User? <a href="Index.html">Sign in</td>
+                            </tr>
+                        </table>
+                            </div>
                         </div>
-                    </td>
-                </tr>
-                
-
-                <tr><td align="right"><input id="rgstr_btn" type="submit" value="Register" />
-                    <td align="left"><button type="reset" value="submit">Reset</button></td>
-                </tr>
-                <tr>
-                    <td align="right"> Already a User? <a href="Index.html">Sign in</td>
-                </tr>
-            </table>
-            
+                    </div>
+                </div>
+            </section>
+                        
         </form> 
 
 
     <script type="text/javascript" language="javascript" src="../JS/RegisterationJS.js"></script>
+    <script type="text/javascript">
 
+        function ResetForm(){
+            document.getElementById('register-form').reset();
+            document.querySelector("#display_image").style.backgroundImage ='none';
+        }
+    </script>
     </body>
 </html>

@@ -2,9 +2,12 @@
 <html>
     <head>
         <title>Learning JavaScript</title>
+        <link rel="stylesheet" href="../css/font-awesome.min.css" />
+        <link rel="stylesheet" href="../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../css/style.css" />
         <style>
             
-            .container{
+            .container1{
             width: 400px;
             height: 225px;
             display: flex;
@@ -27,62 +30,85 @@
         </style>
     </head>
     <body>
-        <center>  <h1> Edit Details</h1> </center>
-        <hr>
-        
+        <header class="bg-dark mb-3">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <nav class="navbar ">
+                    
+                    <a class="navbar-brand">Edit Details</a>
+                    
+                </nav>
+            </div>
+            
+          </div>
+        </div>
+        </header> 
         
         <form id="edit-form">
-            
-            <table>
-                <tr>
-                  <td align="left">First Name:</td>
-                  <td align="left"><input type="text" id="firstname" name="ftname"  size="15" placeholder="FirstName" />
-                    <span id="error1"></span> </td>
-                </tr>
-                
-                <tr>
-                <td align="left">Last Name:</td>
-                <td align="left"><input type="text" id="lastname" name="ltname" placeholder= "LastName" size="15" />
-                <span id="error2"></span> </td>
-                </tr>
-                <tr>
-                    <td align="left">Gender:</td>
-                    <td align="left"><input type="radio" id="gender" value="Male" name="gender" checked > Male   
-                        <input type="radio" id="gender" value="Female" name="gender"> Female   
-                        <input type="radio" id="gender" value="Other" name="gender"> Other 
-                    </td>
-                </tr>
-                 <tr>
-                    <td align="left">Phone:</td>
-                    <td align="left"><input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>
-                        <input type="text" id="Phone" name="phone" placeholder="phone no." size="10"> <span id="error3"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left">Address:</td>
-                    <td align="left"><input type="text" id="address" name="addr" placeholder= "Full Address"   /><span id="error4"></span> </td>
-                </tr>
-                <tr>
-                    <td align="left">Email:</td>
-                    <td align="left"><input type="text" id="email" placeholder="Enter Email" name="email"> <span id="error5"></span></td>
-                </tr>
-                
-                
-                <tr>
-                    <td align="left">Upload Image:</td>
-                    <td><div class="container">
-                        <input type="file" id="image_input" >
-                        <img id="display_image" src="">
-                     </div>
-                    </td>
-                </tr>
-                
-                 <tr><td align="right"><input id="edit_btn" type="submit" value="Save" />
-                    <td align="center"><button type="reset" value="submit">Reset</button></td>
-                    <td align="left"><button id="bck-btn" type="button" onclick="back()">Back</button></td>
-                </tr>
-            
-            </table>
+            <section class="todo-outer">
+                <div class="container">
+                  <div class="row justify-content-md-center">
+                    <div class="col-lg-8 col-md-8">
+                      <div class="todo-inner">
+                        <div class="form-row">
+                          <div class="col-12 mr-sm-1 my-lg-2"> 
+                            <table>
+                                <tr>
+                                <td align="left">First Name:</td>
+                                <td align="left"><input type="text" id="firstname" name="ftname"  size="15" placeholder="FirstName" />
+                                    <span id="error1"></span> </td>
+                                </tr>
+                                
+                                <tr>
+                                <td align="left">Last Name:</td>
+                                <td align="left"><input type="text" id="lastname" name="ltname" placeholder= "LastName" size="15" />
+                                <span id="error2"></span> </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">Gender:</td>
+                                    <td align="left"><input type="radio" id="gender" value="Male" name="gender" checked > Male   
+                                        <input type="radio" id="gender" value="Female" name="gender"> Female   
+                                        <input type="radio" id="gender" value="Other" name="gender"> Other 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">Phone:</td>
+                                    <td align="left"><input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>
+                                        <input type="text" id="Phone" name="phone" placeholder="phone no." size="10"> <span id="error3"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">Address:</td>
+                                    <td align="left"><input type="text" id="address" name="addr" placeholder= "Full Address"   /><span id="error4"></span> </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">Email:</td>
+                                    <td align="left"><input type="text" id="email" placeholder="Enter Email" name="email"> <span id="error5"></span></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td align="left">Upload Image:</td>
+                                    <td><div class="container1">
+                                        <input type="file" id="image_input" >
+                                        <img id="display_image" src="">
+                                    </div><span id="error6"></span>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                            <div class="d-grid gap-2 d-md-flex justify-content-center">
+                                <input id="edit_btn" type="submit" value="Save" class="btn btn-primary mr-2"/>
+                                <button type="reset" value="submit" class="btn btn-primary mr-2" onClick="ResetForm()">Reset</button>
+                                <button id="bck-btn" type="button" onclick="back()" class="btn btn-primary mr-2">Back</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             
         </form> 
        
@@ -93,6 +119,11 @@
         window.history.forward();
         function noBack() {
             window.history.forward();
+        }
+
+        function ResetForm(){
+            document.getElementById('edit-form').reset();
+            document.querySelector("#display_image").setAttribute("src","");
         }
     </script>
     </body>

@@ -112,7 +112,7 @@ function showtask(){
             html += `<tr>
                     <th>${index+1}</th>
                     ${taskCompleteValue}
-                    <td align="right"><button type="button" onclick="deleteitem(${index})">Delete</button></td>
+                    <td align="right"><button type="button" class="btn btn-primary" onclick="deleteitem(${index})">Delete</button></td>
                 </tr>`;
         }else{
             taskCompleteValue = `<td>${item.task_name}</td>
@@ -122,9 +122,9 @@ function showtask(){
             html += `<tr>
                      <th >${index+1}</th>
                      ${taskCompleteValue}
-                     <td align="right"><button type="button" onclick="edittask(${index})">Edit</button></td>
-                     <td align="right"><button type="button" class="text-success" id=${index}>Complete</button></td>
-                     <td align="right"><button type="button" onclick="deleteitem(${index})" >Delete</button></td>
+                     <td align="right"><button type="button" class="btn btn-primary" onclick="edittask(${index})">Edit</button></td>
+                     <td align="right"><button type="button" class=" btn btn-primary" id=${index}>Complete</button></td>
+                     <td align="right"><button type="button" class="btn btn-primary" onclick="deleteitem(${index})" >Delete</button></td>
                 </tr>`;
         }
         
